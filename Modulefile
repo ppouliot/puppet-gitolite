@@ -1,5 +1,5 @@
 name    'hunner-gitolite'
-version '0.2.2'
+version '0.2.3'
 source 'https://github.com/hunner/puppet-gitolite'
 author 'hunner'
 license 'BSD'

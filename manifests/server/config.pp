@@ -39,7 +39,8 @@ class gitolite::server::config(
   $vhost,
   $manage_apache,
   $apache_notify,
-  $write_apache_conf_to
+  $write_apache_conf_to,
+  $wildrepos,
 ) {
   File {
     owner => $gitolite::params::gt_uid,
@@ -167,7 +168,7 @@ class gitolite::server::config(
     mode    => '0600',
     require => Exec['install-gitolite'],
   }
-  # Template uses nothing
+  # Template uses $wildrepos
   file { 'gitolite-config':
     path    => "${gitolite::params::gt_repo_base}/.gitolite.rc",
     content => template('gitolite/gitolite.rc.erb'),

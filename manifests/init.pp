@@ -81,7 +81,8 @@ class gitolite(
   $manage_apache        = false,
   $apache_notify        = '',
   $write_apache_conf_to = '',
-  $ssh_key              = ''
+  $ssh_key              = '',
+  $wildrepos            = '0',
 ) {
   include stdlib
   include gitolite::params
@@ -99,6 +100,7 @@ class gitolite(
       apache_notify        => $apache_notify,
       write_apache_conf_to => $write_apache_conf_to,
       ssh_key              => $ssh_key,
+      wildrepos            => $wildrepos,
       require              => Class['gitolite::client'],
       before               => Anchor['gitolite::end'],
     }
